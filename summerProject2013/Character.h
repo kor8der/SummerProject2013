@@ -4,11 +4,9 @@
 
 #include "includes.h"
 
-class Character: protected ScreenObject
+class Character: protected GameObject
 {
 protected:
-	int mapX;
-	int mapY;
 	int strength;
 	int toughness;
 	int agility;
@@ -19,7 +17,7 @@ protected:
 	int hitPoints;
 	float dodgeChance;
 	float hitChance;
-	
+	facingDirection facing;
 public:
 	Character();
 	Character(int str, int tou, int agil, int intel, int per, int wil);

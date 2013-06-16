@@ -19,7 +19,7 @@
 
 # release files
 
-release/*
+/Release/*
 
 #project files
 

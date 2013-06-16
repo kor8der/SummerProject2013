@@ -32,24 +32,40 @@ int main ()
 	screen.setFramerateLimit(30);
 
 	sf::Texture texture;
-	texture.loadFromFile("img/testImg.gif");
+	texture.loadFromFile("img/testjpg.jpg");
 	sf::Sprite sprite(texture);
 
 
 	sf::Font font;
 	font.loadFromFile("font/Amano.ttf");
-	sf::Text text("holy shit", font, 50);
-	text.setPosition(0,40);
+	sf::Text text("holy shit, text!", font, 50);
+	text.setPosition(0,400);
+
+	std::string argument;
+	ScreenObject guiFrame(550, 0, 250, 600);
+	guiFrame.loadTexture("img/sideGuiBackground.gif");
 
 	while (screen.isOpen())
 	{
 		//update loop
+
+		sf::Event event;
+
+		while (screen.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+			{
+				screen.close();
+			}
+		}
 
 		screen.clear();
 
 		screen.draw(sprite);
 
 		screen.draw(text);
+
+		guiFrame.drawSelf(&screen);
 
 		screen.display();
 	}

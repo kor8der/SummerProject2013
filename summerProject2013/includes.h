@@ -8,8 +8,9 @@
 #include <SFML/Audio/Music.hpp>
 //#include <string>
 
-
+#include "FacingDirectionT.h"
 #include "ScreenObject.h"
+#include "GameObject.h"
 #include "Character.h"
 
 

@@ -12,13 +12,19 @@ protected:
 	int screenY;
 	int sizeX;
 	int sizeY;
-	sf::Image *objectImage;
+	sf::Texture objectTexture;
+	sf::Sprite objectSprite;
 
 
 public:
 
 	ScreenObject();
-
+	ScreenObject(int screenPosX, int screenPosY, int textSizeX, int textSizeY);
+	ScreenObject(int screenPosX, int screenPosY, int textSizeX, int textSizeY, std::string location);
+	
+	bool loadTexture(std::string location);
+	
+	bool drawSelf(sf::RenderWindow *target);
 };
 
 
