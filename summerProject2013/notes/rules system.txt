@@ -1,0 +1,21 @@
+strength
+	carryingCapacity = strength*strength/5 kg
+	damageModifier = strength/requirement 
+	
+toughness
+	hitPoints = toughness
+	hungerCounter = 10 * toughness//number is taken from ass
+	
+agility
+	dodgeChance =  0.005f * agility //edit these numbers
+	hitChance = 0.5f + agility*0.01//edit these numbers
+	//add lockpicking
+
+intelligence
+	memory = 10 * int
+
+perception
+	lootModifier = 0.05*perception
+
+will
+	
