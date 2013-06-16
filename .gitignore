@@ -16,3 +16,17 @@
 # Created by merging
 
 *.orig
+
+# release files
+
+release/*
+
+#project files
+
+*.sdf
+*.suo
+*.opensdf
+
+#ipch files
+
+ipch/*
