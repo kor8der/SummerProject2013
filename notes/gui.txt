@@ -1,0 +1,7 @@
+map 0-549, 0-599
+
+sidebar 550-799, 0-599
+
+OPTIONAL conversation  0-549, 400-599
+
+OPTIONAL inventory  0-549, 0-599
