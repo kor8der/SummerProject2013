@@ -18,6 +18,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ScreenObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes.h">
@@ -27,6 +30,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ScreenObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FacingDirectionT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiElement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -63,9 +63,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ScreenObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
+    <ClInclude Include="FacingDirectionT.h" />
+    <ClInclude Include="GuiElement.h" />
     <ClInclude Include="includes.h" />
     <ClInclude Include="ScreenObject.h" />
   </ItemGroup>

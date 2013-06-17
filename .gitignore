@@ -26,8 +26,6 @@
 *.sdf
 *.suo
 *.opensdf
-*.vcxproj
-*.filters
 
 #ipch files
 
