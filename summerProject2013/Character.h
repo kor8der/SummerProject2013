@@ -4,7 +4,7 @@
 
 #include "includes.h"
 
-class Character: protected GameObject
+class Character: public GameObject
 {
 protected:
 	int strength;

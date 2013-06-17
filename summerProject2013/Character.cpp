@@ -14,6 +14,14 @@ Character::Character()
 	//remove these later
 	mapX = 8;
 	mapY = 8; 
-	///
+	//
+	screenX = 32*mapX;
+	screenY = 32*mapY;
+	sizeX = 32;
+	sizeY = 32;
+
+	loadTexture("img/playerFacingNorth.png");
+
+
 }
 

@@ -1,5 +1,10 @@
 #include "includes.h"
 
+GameObject::GameObject()
+{
+
+}
+
 int GameObject::getXPosition()
 {
 	return mapX;

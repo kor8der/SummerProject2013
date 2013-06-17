@@ -30,3 +30,11 @@ MapObject::MapObject(bool block, bool rest, int posX, int posY)
 		loadTexture("img/floorSquare.png");
 	}
 }
+
+
+bool MapObject::setScreenPosition(int xOffset, int yOffset)
+{
+	screenX = (mapX-xOffset)*32;
+	screenY = (mapY-yOffset)*32;
+	return true;
+}

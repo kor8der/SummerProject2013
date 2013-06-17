@@ -50,12 +50,13 @@ int main ()
 	
 	//DungeonLevel testLevel;
 
-	GameWorld game;
+	GameWorld * game;
 
+	game = new GameWorld();
 	//update loop
 
 	int code;
-	code = game.gameLoop(&screen);
+	code = game->gameLoop(&screen);
 
 	if (1 == code)
 	{

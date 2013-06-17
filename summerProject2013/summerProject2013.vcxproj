@@ -62,7 +62,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Character.cpp" />
     <ClCompile Include="DungeonLevel.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameWorld.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapObject.cpp" />

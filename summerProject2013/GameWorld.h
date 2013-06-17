@@ -7,9 +7,9 @@
 class GameWorld
 {
 protected:
-	DungeonLevel ** dungeons;
 	Character * player;
-
+	DungeonLevel * dungeons;
+	
 public:
 	GameWorld();
 	int gameLoop(sf::RenderWindow * screen);

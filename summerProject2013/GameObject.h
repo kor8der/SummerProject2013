@@ -13,12 +13,11 @@ protected:
 	
 
 public:
-
+	GameObject();
 	bool setPosition(int xPos, int yPos);
 	int getXPosition();
 	int getYPosition();
-
-
+	
 };
 
 #endif

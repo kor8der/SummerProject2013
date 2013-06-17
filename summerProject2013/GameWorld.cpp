@@ -2,9 +2,15 @@
 
 GameWorld::GameWorld()
 {
-	dungeons[0] = new DungeonLevel();
+//	malloc(sizeof(new DungeonLevel()));
 
 	player = new Character();
+	
+	dungeons[0] = DungeonLevel(player);
+
+	//malloc(sizeof(new Character()));
+	
+	
 
 }
 
@@ -20,7 +26,9 @@ bool GameWorld::inputHandler(sf::RenderWindow * screen)
 				return true;
 			}
 		else if (event.type == sf::Event::KeyPressed)
+		{
 
+		}
 	}
 
 	return false;
@@ -32,9 +40,16 @@ int GameWorld::gameLoop(sf::RenderWindow * screen)
 	{
 		inputHandler(screen);
 		
+		drawDungeon(screen);
 
+		player->drawSelf(screen);
 
 
 	}
 	return 1;
+}
+
+void GameWorld::drawDungeon(sf::RenderWindow * screen)
+{
+	dungeons[0].drawDungeon(screen);
 }

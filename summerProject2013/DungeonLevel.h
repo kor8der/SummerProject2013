@@ -7,11 +7,12 @@
 class DungeonLevel
 {
 protected:
-	MapObject  * map [50][50];
-	Character * player;
+	MapObject *** map;
+	Character * playerChar;
 
 public:
 	DungeonLevel();
+	DungeonLevel(Character * tempChar);
 	void drawDungeon(sf::RenderWindow *target);
 	void adjustMap();
 };
