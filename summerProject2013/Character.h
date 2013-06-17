@@ -18,6 +18,7 @@ protected:
 	float dodgeChance;
 	float hitChance;
 	facingDirection facing;
+
 public:
 	Character();
 	Character(int str, int tou, int agil, int intel, int per, int wil);

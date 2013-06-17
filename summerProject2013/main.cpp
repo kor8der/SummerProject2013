@@ -41,34 +41,35 @@ int main ()
 	sf::Text text("holy shit, text!", font, 50);
 	text.setPosition(0,400);
 
-	std::string argument;
 	ScreenObject guiFrame(550, 0, 250, 600);
 	guiFrame.loadTexture("img/sideGuiBackground.gif");
 
-	while (screen.isOpen())
+	music.openFromFile("music/Minima.ogg"); //From incompetech
+	music.setLoop(true);
+	music.play();
+	
+	//DungeonLevel testLevel;
+
+	GameWorld game;
+
+	//update loop
+
+	int code;
+	code = game.gameLoop(&screen);
+
+	if (1 == code)
 	{
-		//update loop
-
-		sf::Event event;
-
-		while (screen.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-			{
-				screen.close();
-			}
-		}
-
-		screen.clear();
-
-		screen.draw(sprite);
-
-		screen.draw(text);
-
-		guiFrame.drawSelf(&screen);
-
-		screen.display();
+		std::cout << "successful exit";
 	}
+		
+
+	//	testLevel.drawDungeon(&screen);
+
+	//	screen.draw(sprite);
+
+	//	screen.draw(text);
+
+		
 	
 	return 0;
 

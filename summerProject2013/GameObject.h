@@ -5,7 +5,7 @@
 
 #include "includes.h"
 
-class GameObject: protected ScreenObject
+class GameObject: public ScreenObject
 {
 protected:
 	int mapX;

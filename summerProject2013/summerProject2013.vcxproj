@@ -62,14 +62,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DungeonLevel.cpp" />
+    <ClCompile Include="GameWorld.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MapObject.cpp" />
     <ClCompile Include="ScreenObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
+    <ClInclude Include="DungeonLevel.h" />
     <ClInclude Include="FacingDirectionT.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameWorld.h" />
     <ClInclude Include="GuiElement.h" />
     <ClInclude Include="includes.h" />
+    <ClInclude Include="MapObject.h" />
     <ClInclude Include="ScreenObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

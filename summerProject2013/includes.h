@@ -2,6 +2,8 @@
 
 #define INCLUDES_H
 
+#include <iostream>
+
 //#include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 //#include <SFML/System.hpp>
@@ -11,8 +13,10 @@
 #include "FacingDirectionT.h"
 #include "ScreenObject.h"
 #include "GameObject.h"
+#include "MapObject.h"
 #include "Character.h"
 
-
+#include "DungeonLevel.h"
+#include "GameWorld.h"
 
 #endif

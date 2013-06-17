@@ -2,10 +2,7 @@
 
 ScreenObject::ScreenObject()
 {
-	screenX;
-	screenY;
-	sizeX;
-	sizeY;
+
 }
 
 ScreenObject::ScreenObject(int screenPosX, int screenPosY, int textSizeX, int textSizeY)
