@@ -7,7 +7,7 @@
 class DungeonLevel
 {
 protected:
-	MapObject *** map;
+	MapObject map[50][50];
 	Character * playerChar;
 
 public:

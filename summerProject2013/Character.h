@@ -28,8 +28,14 @@ public:
 	bool updateHitPoints();
 	bool updateDodgeChance();
 	bool updateHitChance();
-	
-
+	Character operator = (Character * temp);
+	int getStr();
+	int getTou();
+	int getAgi();
+	int getInt();
+	int getPer();
+	int getWill();
+	facingDirection getFacing();
 };
 
 

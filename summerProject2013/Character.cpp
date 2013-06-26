@@ -25,3 +25,42 @@ Character::Character()
 
 }
 
+Character Character::operator = (Character * temp)
+{
+	strength = temp->getStr();
+	toughness = temp->getTou();
+	agility = temp->getAgi();
+	intelligence = temp->getInt();
+	perception = temp->getPer();
+	will = temp->getWill();	
+	facing = temp->getFacing();
+}
+
+int Character::getStr()
+{
+	return strength;
+}
+int Character::getTou()
+{
+	return toughness;
+}
+int Character::getAgi()
+{
+	return agility;
+}
+int Character::getInt()
+{
+	return intelligence;
+}
+int Character::getPer()
+{
+	return perception;
+}
+int Character::getWill()
+{
+	return will;
+}
+facingDirection Character::getFacing()
+{
+	return facing;
+}

@@ -51,7 +51,7 @@ int main ()
 	//DungeonLevel testLevel;
 
 	GameWorld * game;
-
+	std::cout << "&game is: " << &game << '\n';
 	game = new GameWorld();
 	//update loop
 
