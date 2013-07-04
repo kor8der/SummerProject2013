@@ -18,7 +18,6 @@ GameWorld::GameWorld()
 
 	//malloc(sizeof(new Character()));
 	
-	
 
 }
 
@@ -51,7 +50,6 @@ bool GameWorld::inputHandler(sf::RenderWindow * screen)
 			{
 				movePlayer(0, 1);
 			}
-
 		}
 	}
 

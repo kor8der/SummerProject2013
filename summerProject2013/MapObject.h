@@ -17,6 +17,7 @@ public:
 	bool setScreenPosition(int xOffset, int yOffset);
 	bool getMovementBlocking();
 	bool getMovementHampering();
+	bool getIsSeeThrough();
 };
 
 

@@ -32,15 +32,26 @@ MapObject::MapObject(bool block, bool visBlock, bool rest, int posX, int posY)
 
 		//loadTexture("img/testImg.gif");
 	}
+
 	else if (movementHampering)
 	{
 		loadTexture("img/restrictiveSquare.png");
 	}
-	else 
+
+	else
 	{
-		loadTexture("img/floorSquare.png");
+		if (visionBlocking)
+		{
+			loadTexture("img/doorSquare.png");
+		}
+
+		else if(!visionBlocking)
+		{
+			loadTexture("img/floorSquare.png");
+		}
 		//loadTexture("img/testImg.gif");
 	}
+
 }
 
 
@@ -61,3 +72,14 @@ bool MapObject::getMovementHampering()
 	return movementHampering;
 }
 
+bool MapObject::getIsSeeThrough()
+{
+	if (visionBlocking)
+	{
+		return false;
+	}
+	else 
+	{
+		return true;
+	}
+}

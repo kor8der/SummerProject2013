@@ -27,16 +27,60 @@ DungeonLevel::DungeonLevel(Character * tempChar)
 	std:: cout << "DungeonLevel(Character * tempChar, after playerChar is assigned: \n"
 		<< "tempChar : " << tempChar << '\n'
 		<< "playerChar: " << playerChar << '\n';
-	srand(time(NULL));
-
+	//srand(time(NULL));
+	srand(1);//for testing
 	for (int i = 0; i<MAPSIZE; i++)
 	{
 		for (int j = 0; j<MAPSIZE; j++)
 		{
+			
 			map [j][i] = new MapObject(rand()%2, rand()%2, 0, i, j);
 		}
 	}
 
+	octantMultipliers[0][0] = 1;
+	octantMultipliers[0][1] = 0;
+	octantMultipliers[0][2] = 0;
+	octantMultipliers[0][3] = -1;
+	octantMultipliers[0][4] = -1;
+	octantMultipliers[0][5] = 0;
+	octantMultipliers[0][6] = 0;
+	octantMultipliers[0][7] = 1;
+	
+	octantMultipliers[1][0] = 0;
+	octantMultipliers[1][1] = 1;
+	octantMultipliers[1][2] = -1;
+	octantMultipliers[1][3] = 0;
+	octantMultipliers[1][4] = 0;
+	octantMultipliers[1][5] = -1;
+	octantMultipliers[1][6] = -1;
+	octantMultipliers[1][7] = 0;
+
+octantMultipliers[2][0] = 0;
+octantMultipliers[2][1] = 1;
+octantMultipliers[2][2] = 1;
+octantMultipliers[2][3] = 0;
+octantMultipliers[2][4] = 0;
+octantMultipliers[2][5] = -1;
+octantMultipliers[2][6] = -1;
+octantMultipliers[2][7] = 0;
+
+
+octantMultipliers[3][0] = 1;
+octantMultipliers[3][1] = 0;
+octantMultipliers[3][2] = 0;
+octantMultipliers[3][3] = 1;
+octantMultipliers[3][4] = -1;
+octantMultipliers[3][5] = 0;
+octantMultipliers[3][6] = 0;
+octantMultipliers[3][7] = -1;
+
+	//{
+	//	{1,0,0,-1,-1,0,0,1},
+	//	{0,1,-1,0,0,-1,1,0},
+	//	{0,1,1,0,0,-1,-1,0},
+	//	{1,0,0,1,-1,0,0,-1}
+	//}
 	
 }
 
@@ -44,45 +88,53 @@ void DungeonLevel::drawDungeon(sf::RenderWindow * target)
 {
 	adjustMap();
 
-	//std::cout << "Screen adress sent to map [j][i]->drawSelf: " << &target<< '\n';
-	int leftEdge;
-	int rightEdge;
-	int bottomEdge;
-	int topEdge;
-	
-	leftEdge = playerChar->getXPosition()-10;
-	if(leftEdge < 0)
+	////std::cout << "Screen adress sent to map [j][i]->drawSelf: " << &target<< '\n';
+	//int leftEdge;
+	//int rightEdge;
+	//int bottomEdge;
+	//int topEdge;
+
+	//leftEdge = playerChar->getXPosition()-10;
+	//if(leftEdge < 0)
+	//{
+	//	leftEdge = 0;
+	//}
+
+
+	//rightEdge = playerChar->getXPosition()+11;
+	//if(rightEdge > MAPSIZE)
+	//{
+	//	rightEdge = MAPSIZE;
+	//}
+	//
+	//bottomEdge = playerChar->getYPosition()+11;
+	//if(bottomEdge > MAPSIZE)
+	//{
+	//	bottomEdge = MAPSIZE;
+	//}
+
+
+	//topEdge = playerChar->getYPosition()-10;
+	//if (topEdge < 0)
+	//{
+	//	topEdge = 0;
+	//}
+	//
+
+
+
+	//for (int i = leftEdge; i<rightEdge; i++)
+	//	{
+	//		for (int j = topEdge; j<bottomEdge; j++)
+	//		{
+	//			map [j][i]->drawSelf(target);
+	//		}
+	//	}
+
+	for (int octant = 0; octant<8; octant++)
 	{
-		leftEdge = 0;
+		shadowCasting(0, 5, 1, 0, octant, target);
 	}
-
-
-	rightEdge = playerChar->getXPosition()+11;
-	if(rightEdge > MAPSIZE)
-	{
-		rightEdge = MAPSIZE;
-	}
-	
-	bottomEdge = playerChar->getYPosition()+11;
-	if(bottomEdge > MAPSIZE)
-	{
-		bottomEdge = MAPSIZE;
-	}
-
-
-	topEdge = playerChar->getYPosition()-10;
-	if (topEdge < 0)
-	{
-		topEdge = 0;
-	}
-
-	for (int i = leftEdge; i<rightEdge; i++)
-		{
-			for (int j = topEdge; j<bottomEdge; j++)
-			{
-				map [j][i]->drawSelf(target);
-			}
-		}
 }
 
 void DungeonLevel::adjustMap()
@@ -99,4 +151,89 @@ void DungeonLevel::adjustMap()
 MapObject *DungeonLevel::getSquare(int xPos, int yPos)
 {
 	return map[yPos][xPos];
+}
+
+
+bool DungeonLevel::shadowCasting(int startRow, int radius, double startAngle, double endAngle, int octant, sf::RenderWindow * target)
+{
+	if (startAngle < endAngle)
+		{
+			return false;
+		}
+	int radiusSquared = radius*radius;
+	int deltaX;
+	int deltaY;
+	bool blocked;
+	
+	for(int row = startRow; row<=radius; row++)
+	{
+
+		deltaX = -row-1;//is incremented immediately!
+		deltaY = -row;
+		blocked = false;
+		while (deltaX <= 0)
+		{
+			deltaX += 1;
+			/** This is where the deltaX and deltaY coordinates are transformed into map coordinates**/
+			int x = playerChar->getXPosition()+deltaX*octantMultipliers[0][octant]+deltaY*octantMultipliers[1][octant];
+			int y = playerChar->getYPosition()+deltaX*octantMultipliers[2][octant]+deltaY*octantMultipliers[3][octant];
+			/**rSlope and lSlope store the slopes of the left and right extremities of the square we're considering**/
+			double rSlope;
+			double lSlope;
+			int newStart;
+				
+			rSlope = (deltaX+0.5)/(deltaY-0.5);
+			lSlope = (deltaX-0.5)/(deltaY+0.5);
+				
+			if (startAngle < rSlope)
+			{
+				continue;
+			}
+			else if (endAngle >  lSlope)
+			{
+				break;
+			}
+			else
+			{
+				/** this means that the beam is touching this square and that we should light it **/ 
+				if (deltaX*deltaX + deltaY*deltaY <= radiusSquared)//creates a circle, man
+				{
+					map[y][x]->drawSelf(target);
+				}
+				if (blocked)
+				{
+					/** we're scanning a row of blocked squares **/
+					if (!map[y][x]->getIsSeeThrough())
+					{
+						newStart = rSlope;
+						continue; /**change this**/
+					}
+					else
+					{
+						blocked = false;
+						startAngle = newStart;
+					}
+				}
+				else
+				{	//first blocking square
+					if (!map[y][x]->getIsSeeThrough() && row<radius)
+					{
+						/** this is a blocking square, start a child scan **/
+						blocked = true;
+						shadowCasting (row+1, radius, startAngle, lSlope, octant, target);
+						newStart = rSlope;
+							
+					}
+				}
+			}
+		}
+		/** row is scanned, do next row unless last square was blocked **/
+		if (blocked)
+		{
+			break;
+		}
+	}
+			
+
+	return true;
 }
