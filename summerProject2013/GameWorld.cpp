@@ -16,6 +16,8 @@ GameWorld::GameWorld()
 
 	sideBar = new GuiElement(550,0,250,600, "img/sideGuiBackground.png");
 
+	background = new GuiElement(0,0,800,600, "img/background.png");
+
 	//malloc(sizeof(new Character()));
 	
 
@@ -73,7 +75,7 @@ void GameWorld::drawDungeon(sf::RenderWindow * screen)
 {
 
 	screen->clear();
-
+	background->drawSelf(screen);
 	//std::cout << "Screen adress pre sending: " << &screen << '\n';
 	dungeons[0].drawDungeon(screen);
 	player->drawSelf(screen);

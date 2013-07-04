@@ -10,6 +10,7 @@ protected:
 	Character * player;
 	DungeonLevel * dungeons;
 	GuiElement * sideBar;
+	GuiElement * background;
 	
 public:
 	GameWorld();

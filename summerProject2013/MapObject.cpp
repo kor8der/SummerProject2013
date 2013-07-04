@@ -72,6 +72,7 @@ bool MapObject::getMovementHampering()
 	return movementHampering;
 }
 
+/*this function will be expanded to include every way it could block line of sight on, including objects on the tile*/
 bool MapObject::getIsSeeThrough()
 {
 	if (visionBlocking)
