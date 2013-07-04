@@ -14,8 +14,8 @@ public:
 	MapObject();
 	MapObject(bool block, bool rest, int posX, int posY);
 	bool setScreenPosition(int xOffset, int yOffset);
-
-
+	bool getBlocking();
+	bool getRestrictive();
 };
 
 

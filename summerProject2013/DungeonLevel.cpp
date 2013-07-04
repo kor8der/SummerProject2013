@@ -5,12 +5,13 @@
 DungeonLevel::DungeonLevel()
 {
 	srand(time(NULL));
+	
 
-	for (int i = 0; i<50; i++)
+	for (int i = 0; i<MAPSIZE; i++)
 	{
-		for (int j = 0; j<50; j++)
+		for (int j = 0; j<MAPSIZE; j++)
 		{
-			map [j][i] = MapObject(rand()%2, 0, i, j);
+			map [j][i] = new MapObject(rand()%2, 0, j, i);
 		}
 	}
 
@@ -28,11 +29,11 @@ DungeonLevel::DungeonLevel(Character * tempChar)
 		<< "playerChar: " << playerChar << '\n';
 	srand(time(NULL));
 
-	for (int i = 0; i<50; i++)
+	for (int i = 0; i<MAPSIZE; i++)
 	{
-		for (int j = 0; j<50; j++)
+		for (int j = 0; j<MAPSIZE; j++)
 		{
-			map [j][i] = MapObject(rand()%2, 0, i, j);
+			map [j][i] = new MapObject(rand()%2, 0, i, j);
 		}
 	}
 
@@ -43,25 +44,30 @@ void DungeonLevel::drawDungeon(sf::RenderWindow * target)
 {
 	adjustMap();
 
-	for (int i = 0; i<50; i++)
+	//std::cout << "Screen adress sent to map [j][i]->drawSelf: " << &target<< '\n';
+	
+
+	for (int i = 0; i<MAPSIZE; i++)
 		{
-			for (int j = 0; j<50; j++)
+			for (int j = 0; j<MAPSIZE; j++)
 			{
-				map [j][i].drawSelf(target);
+				map [j][i]->drawSelf(target);
 			}
 		}
 }
 
 void DungeonLevel::adjustMap()
 {
-	for (int i = 0; i<50; i++)
+	for (int i = 0; i<MAPSIZE; i++)
 		{
-			for (int j = 0; j<50; j++)
+			for (int j = 0; j<MAPSIZE; j++)
 			{
-				map [j][i].setScreenPosition(8-playerChar->getXPosition(), 8-playerChar->getYPosition());
+				map [j][i]->setScreenPosition(playerChar->getXPosition()-8, playerChar->getYPosition()-8);
 			}
-		}
-	
-	
-	
+		}	
+}
+
+MapObject *DungeonLevel::getSquare(int xPos, int yPos)
+{
+	return map[yPos][xPos];
 }

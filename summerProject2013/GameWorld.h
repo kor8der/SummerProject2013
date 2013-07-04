@@ -15,6 +15,8 @@ public:
 	int gameLoop(sf::RenderWindow * screen);
 	void drawDungeon(sf::RenderWindow * screen);
 	bool inputHandler(sf::RenderWindow * screen);
+	bool movePlayer(int deltaX, int deltaY);
+	
 };
 
 #endif

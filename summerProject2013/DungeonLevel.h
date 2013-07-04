@@ -1,4 +1,4 @@
-#ifndef DUNGEON:LEVEL_H
+#ifndef DUNGEON_LEVEL_H
 
 #define DUNGEON_LEVEL_H
 
@@ -7,7 +7,8 @@
 class DungeonLevel
 {
 protected:
-	MapObject map[50][50];
+	static const int MAPSIZE = 50;
+	MapObject* map[MAPSIZE][MAPSIZE];
 	Character * playerChar;
 
 public:
@@ -15,6 +16,7 @@ public:
 	DungeonLevel(Character * tempChar);
 	void drawDungeon(sf::RenderWindow *target);
 	void adjustMap();
+	MapObject *getSquare(int xPos, int yPos);
 };
 
 #endif

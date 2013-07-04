@@ -20,6 +20,7 @@
 # release files
 
 /Release/*
+/Debug/*
 
 #project files
 

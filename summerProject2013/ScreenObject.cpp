@@ -24,9 +24,14 @@ ScreenObject::ScreenObject(int screenPosX, int screenPosY, int textSizeX, int te
 
 bool ScreenObject::loadTexture(std::string location)
 {
-	objectTexture.loadFromFile(location);
+	if(!objectTexture.loadFromFile(location))
+	{
+		std::cout << "COULD NOT LOAD TEXTURE: " << location << '\n';
+		return false;
+	}
 	objectSprite.setTexture(objectTexture);
 	objectSprite.setPosition(screenX, screenY);
+	
 	return true;
 }
 

@@ -46,7 +46,7 @@ int main ()
 
 	music.openFromFile("music/Minima.ogg"); //From incompetech
 	music.setLoop(true);
-	music.play();
+	//music.play();
 	
 	//DungeonLevel testLevel;
 
@@ -54,8 +54,19 @@ int main ()
 	std::cout << "&game is: " << &game << '\n';
 	game = new GameWorld();
 	//update loop
+	MapObject testSquare;
+	testSquare = MapObject(1,0,0,0);
+	/*while (true)
+	{
+		screen.clear();
+		testSquare.drawSelf(&screen);
+		screen.display();
+	}*/
 
 	int code;
+	
+	std::cout << "Screen adress in main: " << &screen << '\n';
+	
 	code = game->gameLoop(&screen);
 
 	if (1 == code)
