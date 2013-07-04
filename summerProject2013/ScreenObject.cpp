@@ -11,6 +11,7 @@ ScreenObject::ScreenObject(int screenPosX, int screenPosY, int textSizeX, int te
 	screenY = screenPosY;
 	sizeX = textSizeX;
 	sizeY = textSizeY;
+	loadTexture("img/testjpg.jpg");
 }
 
 ScreenObject::ScreenObject(int screenPosX, int screenPosY, int textSizeX, int textSizeY, std::string location)
@@ -21,6 +22,17 @@ ScreenObject::ScreenObject(int screenPosX, int screenPosY, int textSizeX, int te
 	sizeY = textSizeY;
 	loadTexture(location);
 }
+
+int ScreenObject::getScreenX()
+{
+	return screenX;
+}
+
+int ScreenObject::getScreenY()
+{
+	return screenY;
+}
+
 
 bool ScreenObject::loadTexture(std::string location)
 {

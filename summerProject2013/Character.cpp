@@ -12,8 +12,8 @@ Character::Character()
 	will = 10;	
 	facing = NORTH;
 	//remove these later
-	mapX = 8;
-	mapY = 8; 
+	mapX = 9;
+	mapY = 9; 
 	//
 	screenX = 32*mapX;
 	screenY = 32*mapY;

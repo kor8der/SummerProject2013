@@ -55,7 +55,7 @@ int main ()
 	game = new GameWorld();
 	//update loop
 	MapObject testSquare;
-	testSquare = MapObject(1,0,0,0);
+	testSquare = MapObject(1,1,0,0,0);
 	/*while (true)
 	{
 		screen.clear();

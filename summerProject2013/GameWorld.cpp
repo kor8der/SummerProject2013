@@ -14,6 +14,8 @@ GameWorld::GameWorld()
 
 	std::cout <<"end of world creation: \n" << "&player is: " << &player << '\n' << "&dungeons[0] is: " << &dungeons[0] <<'\n';
 
+	sideBar = new GuiElement(550,0,250,600, "img/sideGuiBackground.png");
+
 	//malloc(sizeof(new Character()));
 	
 	
@@ -64,6 +66,7 @@ int GameWorld::gameLoop(sf::RenderWindow * screen)
 		//std::cout << "Screen adress from game loop to draw function: " << &screen << '\n';
 	
 		drawDungeon(screen);
+		
 	}
 	return 1;
 }
@@ -77,7 +80,7 @@ void GameWorld::drawDungeon(sf::RenderWindow * screen)
 	dungeons[0].drawDungeon(screen);
 	player->drawSelf(screen);
 	//std::cout << "Screen adress sent to player->drawSelf: " << &screen << '\n';
-	
+	sideBar->drawSelf(screen);
 	screen->display();
 }
 
@@ -87,7 +90,7 @@ bool GameWorld::movePlayer(int deltaX, int deltaY)
 
 	destination = dungeons[0].getSquare(player->getXPosition()+deltaX,player->getYPosition()+deltaY);
 	
-	if(!destination->getBlocking())
+	if(!destination->getMovementBlocking())
 	{
 		player->setPosition(player->getXPosition()+deltaX,player->getYPosition()+deltaY);
 		return true;

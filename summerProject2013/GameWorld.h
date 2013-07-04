@@ -9,6 +9,7 @@ class GameWorld
 protected:
 	Character * player;
 	DungeonLevel * dungeons;
+	GuiElement * sideBar;
 	
 public:
 	GameWorld();

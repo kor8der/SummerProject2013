@@ -12,6 +12,7 @@
 
 #include "FacingDirectionT.h"
 #include "ScreenObject.h"
+#include "GuiElement.h"
 #include "GameObject.h"
 #include "MapObject.h"
 #include "Character.h"

@@ -5,10 +5,11 @@ MapObject::MapObject()
 {
 }
 
-MapObject::MapObject(bool block, bool rest, int posX, int posY)
+MapObject::MapObject(bool block, bool visBlock, bool rest, int posX, int posY)
 {
-	blocking = block;
-	restrictive = rest;
+	movementBlocking = block;
+	movementHampering = rest;
+	visionBlocking = visBlock; 
 	mapX = posX;
 	mapY = posY;
 	screenX = 32*mapX;
@@ -17,12 +18,21 @@ MapObject::MapObject(bool block, bool rest, int posX, int posY)
 	sizeY = 32;
 
 
-	if (blocking)
+	if (movementBlocking)
 	{
-		loadTexture("img/wallSquare.png");
+		if (visionBlocking)
+		{
+			loadTexture("img/wallSquare.png");
+		}
+
+		else if (!visionBlocking)
+		{
+			loadTexture("img/glassWallSquare.png");
+		}
+
 		//loadTexture("img/testImg.gif");
 	}
-	else if (restrictive)
+	else if (movementHampering)
 	{
 		loadTexture("img/restrictiveSquare.png");
 	}
@@ -42,12 +52,12 @@ bool MapObject::setScreenPosition(int xOffset, int yOffset)
 	return true;
 }
 
-bool MapObject::getBlocking()
+bool MapObject::getMovementBlocking()
 {
-	return blocking;
+	return movementBlocking;
 }
-bool MapObject::getRestrictive()
+bool MapObject::getMovementHampering()
 {
-	return restrictive;
+	return movementHampering;
 }
 

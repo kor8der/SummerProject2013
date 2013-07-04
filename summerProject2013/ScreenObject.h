@@ -22,8 +22,10 @@ public:
 	ScreenObject(int screenPosX, int screenPosY, int textSizeX, int textSizeY);
 	ScreenObject(int screenPosX, int screenPosY, int textSizeX, int textSizeY, std::string location);
 	
+	int getScreenX();
+	int getScreenY();
+
 	bool loadTexture(std::string location);
-	
 	bool drawSelf(sf::RenderWindow *target);
 };
 

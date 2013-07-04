@@ -66,6 +66,7 @@
     <ClCompile Include="DungeonLevel.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameWorld.cpp" />
+    <ClCompile Include="GuiElement.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapObject.cpp" />
     <ClCompile Include="ScreenObject.cpp" />

@@ -7,15 +7,16 @@
 class MapObject: public GameObject
 {
 protected:
-	bool blocking;
-	bool restrictive;
+	bool movementBlocking;
+	bool visionBlocking;
+	bool movementHampering;
 
 public:
 	MapObject();
-	MapObject(bool block, bool rest, int posX, int posY);
+	MapObject(bool block, bool visBlock, bool rest, int posX, int posY);
 	bool setScreenPosition(int xOffset, int yOffset);
-	bool getBlocking();
-	bool getRestrictive();
+	bool getMovementBlocking();
+	bool getMovementHampering();
 };
 
 
