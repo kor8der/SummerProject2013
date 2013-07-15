@@ -8,7 +8,9 @@ class GameItem : public GameObject
 {
 protected:
 	bool equipable;
-	int charges;
+	int charges; 
+	int weight; //the weight of the item in kilograms	
+	int value; //the value of the item in gold peices 
 
 public:
 	GameItem();

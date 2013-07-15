@@ -10,7 +10,8 @@ class GameObject: public ScreenObject
 protected:
 	int mapX;
 	int mapY;
-	
+	int hitPoints;
+	int damageReduction;
 
 public:
 	GameObject();

@@ -23,30 +23,28 @@ Character::Character()
 	loadTexture("img/playerFacingNorth.png");
 
 	sightRadius = perception/2;
-
-	characterItems = NULL;
-
+	characterItems = new GameItem();
 }
 
-Character Character::operator = (Character * temp)
-{
-	Character tempChar;
-	tempChar = Character();
-	
-	strength = temp->getStr();
-	toughness = temp->getTou();
-	agility = temp->getAgi();
-	intelligence = temp->getInt();
-	perception = temp->getPer();
-	will = temp->getWill();	
-	facing = temp->getFacing();
-	sightRadius = temp->getSightRadius();
-
-
-	
-
-	return tempChar;
-}
+//Character Character::operator = (Character * temp)
+//{
+//	Character tempChar;
+//	tempChar = Character();
+//	
+//	strength = temp->getStr();
+//	toughness = temp->getTou();
+//	agility = temp->getAgi();
+//	intelligence = temp->getInt();
+//	perception = temp->getPer();
+//	will = temp->getWill();	
+//	facing = temp->getFacing();
+//	sightRadius = temp->getSightRadius();
+//
+//
+//	
+//
+//	return tempChar;
+//}
 
 int Character::getStr() const
 {

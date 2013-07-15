@@ -19,7 +19,7 @@ protected:
 	float hitChance;
 	facingDirection facing;
 	int sightRadius;
-	GameItem** characterItems;
+	GameItem* characterItems;
 
 public:
 	Character();
@@ -30,7 +30,7 @@ public:
 	bool updateHitPoints();
 	bool updateDodgeChance();
 	bool updateHitChance();
-	Character operator = (Character * temp);
+	//Character operator = (Character * temp);
 	int getStr() const;
 	int getTou() const;
 	int getAgi() const;
