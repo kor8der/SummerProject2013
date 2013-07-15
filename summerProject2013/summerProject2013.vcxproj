@@ -64,6 +64,7 @@
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="DungeonLevel.cpp" />
+    <ClCompile Include="GameItem.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameWorld.cpp" />
     <ClCompile Include="GuiElement.cpp" />
@@ -75,6 +76,7 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="DungeonLevel.h" />
     <ClInclude Include="FacingDirectionT.h" />
+    <ClInclude Include="GameItem.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameWorld.h" />
     <ClInclude Include="GuiElement.h" />

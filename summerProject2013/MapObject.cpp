@@ -3,6 +3,7 @@
 
 MapObject::MapObject()
 {
+	
 }
 
 MapObject::MapObject(bool block, bool visBlock, bool rest, int posX, int posY)
@@ -51,6 +52,8 @@ MapObject::MapObject(bool block, bool visBlock, bool rest, int posX, int posY)
 		}
 		//loadTexture("img/testImg.gif");
 	}
+
+	items = NULL;
 
 }
 

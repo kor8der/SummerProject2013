@@ -27,14 +27,21 @@ DungeonLevel::DungeonLevel(Character * tempChar)
 	std:: cout << "DungeonLevel(Character * tempChar, after playerChar is assigned: \n"
 		<< "tempChar : " << tempChar << '\n'
 		<< "playerChar: " << playerChar << '\n';
-	//srand(time(NULL));
-	srand(1);//for testing
+	srand(time(NULL));
+	//srand(1);//for testing
 	for (int i = 0; i<MAPSIZE; i++)
 	{
 		for (int j = 0; j<MAPSIZE; j++)
 		{
 			
-			map [j][i] = new MapObject(rand()%2, rand()%2, 0, i, j);
+			if (j==MAPSIZE || i==MAPSIZE || j==0 || i==0)
+			{
+				map [j][i] = new MapObject(true, true, 0, i, j);
+			}
+			else
+			{
+				map [j][i] = new MapObject(rand()%2, rand()%2, 0, i, j);
+			}
 		}
 	}
 
@@ -88,52 +95,10 @@ void DungeonLevel::drawDungeon(sf::RenderWindow * target)
 {
 	adjustMap();
 
-	////std::cout << "Screen adress sent to map [j][i]->drawSelf: " << &target<< '\n';
-	//int leftEdge;
-	//int rightEdge;
-	//int bottomEdge;
-	//int topEdge;
-
-	//leftEdge = playerChar->getXPosition()-10;
-	//if(leftEdge < 0)
-	//{
-	//	leftEdge = 0;
-	//}
-
-
-	//rightEdge = playerChar->getXPosition()+11;
-	//if(rightEdge > MAPSIZE)
-	//{
-	//	rightEdge = MAPSIZE;
-	//}
-	//
-	//bottomEdge = playerChar->getYPosition()+11;
-	//if(bottomEdge > MAPSIZE)
-	//{
-	//	bottomEdge = MAPSIZE;
-	//}
-
-
-	//topEdge = playerChar->getYPosition()-10;
-	//if (topEdge < 0)
-	//{
-	//	topEdge = 0;
-	//}
-	//
-
-
-
-	//for (int i = leftEdge; i<rightEdge; i++)
-	//	{
-	//		for (int j = topEdge; j<bottomEdge; j++)
-	//		{
-	//			map [j][i]->drawSelf(target);
-	//		}
-	//	}
-
+	
 	for (int octant = 0; octant<8; octant++)
 	{
-		shadowCasting(0, 5, 1, 0, octant, target);
+		shadowCasting(0, playerChar->getSightRadius(), 1, 0, octant, target);
 	}
 }
 

@@ -52,6 +52,12 @@ bool GameWorld::inputHandler(sf::RenderWindow * screen)
 			{
 				movePlayer(0, 1);
 			}
+			if (event.key.code == sf::Keyboard::Escape)
+			{
+				screen->close();
+				return true;
+			}
+
 		}
 	}
 

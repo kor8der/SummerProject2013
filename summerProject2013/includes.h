@@ -14,6 +14,7 @@
 #include "ScreenObject.h"
 #include "GuiElement.h"
 #include "GameObject.h"
+#include "GameItem.h"
 #include "MapObject.h"
 #include "Character.h"
 

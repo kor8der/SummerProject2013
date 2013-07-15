@@ -18,6 +18,8 @@ protected:
 	float dodgeChance;
 	float hitChance;
 	facingDirection facing;
+	int sightRadius;
+	GameItem** characterItems;
 
 public:
 	Character();
@@ -29,13 +31,14 @@ public:
 	bool updateDodgeChance();
 	bool updateHitChance();
 	Character operator = (Character * temp);
-	int getStr();
-	int getTou();
-	int getAgi();
-	int getInt();
-	int getPer();
-	int getWill();
-	facingDirection getFacing();
+	int getStr() const;
+	int getTou() const;
+	int getAgi() const;
+	int getInt() const;
+	int getPer() const;
+	int getWill() const;
+	facingDirection getFacing()const;
+	int getSightRadius() const;
 };
 
 

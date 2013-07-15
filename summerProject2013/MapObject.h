@@ -10,7 +10,7 @@ protected:
 	bool movementBlocking;
 	bool visionBlocking;
 	bool movementHampering;
-
+	GameItem ** items;
 public:
 	MapObject();
 	MapObject(bool block, bool visBlock, bool rest, int posX, int posY);
