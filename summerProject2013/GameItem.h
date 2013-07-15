@@ -4,7 +4,7 @@
 
 #include "includes.h"
 
-class GameItem : public GameObject
+class GameItem //:public GameObject//removed for testing
 {
 protected:
 	bool equipable;

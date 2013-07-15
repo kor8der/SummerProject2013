@@ -18,6 +18,9 @@ GameWorld::GameWorld()
 
 	background = new GuiElement(0,0,800,600, "img/background.png");
 
+	characterImage = new GuiElement(558,8,64,64, "img/characterPortrait.png");
+
+
 	//malloc(sizeof(new Character()));
 	
 
@@ -38,24 +41,37 @@ bool GameWorld::inputHandler(sf::RenderWindow * screen)
 		{
 			if (event.key.code == sf::Keyboard::Left || event.key.code == sf::Keyboard::A)
 			{
-				movePlayer(-1, 0);
+				player->setFacing(WEST);
+				movePlayer(-1, 0);				
 			}
 			if (event.key.code == sf::Keyboard::Up || event.key.code == sf::Keyboard::W)
 			{
+				player->setFacing(NORTH);
 				movePlayer(0, -1);
 			}
 			if (event.key.code == sf::Keyboard::Right || event.key.code == sf::Keyboard::D)
 			{
+				
+				player->setFacing(EAST);
 				movePlayer(1, 0);
 			}
 			if (event.key.code == sf::Keyboard::Down || event.key.code == sf::Keyboard::S)
 			{
+				player->setFacing(SOUTH);
 				movePlayer(0, 1);
 			}
 			if (event.key.code == sf::Keyboard::Escape)
 			{
 				screen->close();
 				return true;
+			}
+			if (event.key.code == sf::Keyboard::P)
+			{
+				pickUp();
+			}
+			if (event.key.code == sf::Keyboard::Q)
+			{
+				putDown();
 			}
 
 		}
@@ -79,7 +95,6 @@ int GameWorld::gameLoop(sf::RenderWindow * screen)
 
 void GameWorld::drawDungeon(sf::RenderWindow * screen)
 {
-
 	screen->clear();
 	background->drawSelf(screen);
 	//std::cout << "Screen adress pre sending: " << &screen << '\n';
@@ -87,6 +102,7 @@ void GameWorld::drawDungeon(sf::RenderWindow * screen)
 	player->drawSelf(screen);
 	//std::cout << "Screen adress sent to player->drawSelf: " << &screen << '\n';
 	sideBar->drawSelf(screen);
+	characterImage->drawSelf(screen);
 	screen->display();
 }
 
@@ -103,4 +119,58 @@ bool GameWorld::movePlayer(int deltaX, int deltaY)
 	}
 
 	return false;
+}
+
+bool GameWorld::pickUp()
+{
+	MapObject *destination;
+	destination = dungeons[0].getSquare(player->getXPosition(), player->getYPosition());
+	
+	if (destination->getHasItems() && !player->inventoryIsFull())
+	{
+		player->addItem(destination->removeItem());
+
+		return true;
+	}
+	
+	return false;
+}
+
+bool GameWorld::putDown()
+{
+	MapObject *destination;
+	destination = dungeons[0].getSquare(player->getXPosition(), player->getYPosition());
+	
+	if (!destination->getIsFull() && player->getHasItems())
+	{
+		GameItem *temp;
+		*temp = player->removeItem();
+		srand(time(NULL));
+		do{
+			temp = destination->addItem(*temp);
+			if (temp)
+			{
+				
+				int direction = rand()%4;
+
+				if (direction == 0)
+				{
+					destination = dungeons[0].getSquare(destination->getXPosition(), destination->getYPosition());
+				}
+				else if (direction == 1)
+				{
+					destination = dungeons[0].getSquare(destination->getXPosition(), destination->getYPosition());
+				}
+				else if (direction == 2)
+				{
+					destination = dungeons[0].getSquare(destination->getXPosition(), destination->getYPosition());
+				}
+				else if (direction == 3)
+				{
+					destination = dungeons[0].getSquare(destination->getXPosition(), destination->getYPosition());
+				}
+			}
+		} while (temp != NULL);
+	}
+	return true;
 }

@@ -11,14 +11,16 @@ protected:
 	DungeonLevel * dungeons;
 	GuiElement * sideBar;
 	GuiElement * background;
-	
+	GuiElement * characterImage;
+
 public:
 	GameWorld();
 	int gameLoop(sf::RenderWindow * screen);
 	void drawDungeon(sf::RenderWindow * screen);
 	bool inputHandler(sf::RenderWindow * screen);
 	bool movePlayer(int deltaX, int deltaY);
-	
+	bool pickUp();
+	bool putDown();
 };
 
 #endif

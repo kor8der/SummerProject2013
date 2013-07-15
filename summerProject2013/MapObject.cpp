@@ -53,7 +53,7 @@ MapObject::MapObject(bool block, bool visBlock, bool rest, int posX, int posY)
 		//loadTexture("img/testImg.gif");
 	}
 
-	items = NULL;
+	numberOfItems = 0;
 
 }
 
@@ -87,3 +87,45 @@ bool MapObject::getIsSeeThrough()
 		return true;
 	}
 }
+
+bool MapObject::getHasItems()
+{
+	return numberOfItems;
+}
+
+GameItem * MapObject::removeItem()
+{
+	numberOfItems--;
+	return &items[numberOfItems+1];
+}
+
+bool MapObject::getIsFull()
+{
+	if (numberOfItems >= MAXITEMS)
+	{
+		return true;
+	}
+	
+	return false;
+}
+
+GameItem *MapObject::addItem(GameItem newItem)
+{
+	if (numberOfItems >= MAXITEMS-1)
+	{
+		GameItem tempItem;
+		srand(time(NULL));
+		int shift = rand()%numberOfItems;
+		tempItem = items[shift];
+		items[shift] = newItem;
+
+		return &tempItem;
+	}
+	else 
+	{
+		numberOfItems++;
+		items[numberOfItems];
+		return NULL;
+	}
+}
+	

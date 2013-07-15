@@ -7,10 +7,12 @@
 class MapObject: public GameObject
 {
 protected:
+	static const int MAXITEMS = 25;
 	bool movementBlocking;
 	bool visionBlocking;
 	bool movementHampering;
-	GameItem ** items;
+	GameItem items[MAXITEMS];
+	int numberOfItems;
 public:
 	MapObject();
 	MapObject(bool block, bool visBlock, bool rest, int posX, int posY);
@@ -18,6 +20,10 @@ public:
 	bool getMovementBlocking();
 	bool getMovementHampering();
 	bool getIsSeeThrough();
+	bool getHasItems();
+	GameItem* removeItem();
+	bool getIsFull();
+	GameItem *addItem(GameItem newItem);
 };
 
 

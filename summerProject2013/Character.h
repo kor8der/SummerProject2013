@@ -7,6 +7,7 @@
 class Character: public GameObject
 {
 protected:
+	static const int MAXITEMS = 5;
 	int strength;
 	int toughness;
 	int agility;
@@ -14,12 +15,12 @@ protected:
 	int perception;
 	int will;
 	float damageModifier;
-	int hitPoints;
 	float dodgeChance;
 	float hitChance;
 	facingDirection facing;
 	int sightRadius;
-	GameItem* characterItems;
+	GameItem characterItems[MAXITEMS];
+	int numberOfItems;
 
 public:
 	Character();
@@ -30,7 +31,14 @@ public:
 	bool updateHitPoints();
 	bool updateDodgeChance();
 	bool updateHitChance();
+	bool addItem(GameItem* newItem);
+	bool inventoryIsFull();
+	bool getHasItems();
+	GameItem removeItem();
+	
 	//Character operator = (Character * temp);
+
+	bool setFacing(facingDirection newFacing);
 	int getStr() const;
 	int getTou() const;
 	int getAgi() const;
@@ -39,6 +47,8 @@ public:
 	int getWill() const;
 	facingDirection getFacing()const;
 	int getSightRadius() const;
+	
+	
 };
 
 

@@ -23,7 +23,7 @@ Character::Character()
 	loadTexture("img/playerFacingNorth.png");
 
 	sightRadius = perception/2;
-	characterItems = new GameItem();
+	numberOfItems = 0;
 }
 
 //Character Character::operator = (Character * temp)
@@ -45,6 +45,31 @@ Character::Character()
 //
 //	return tempChar;
 //}
+
+bool Character::setFacing(facingDirection newFacing)
+{
+	facing = newFacing;
+
+	if (facing == WEST)
+	{
+		loadTexture("img/playerFacingWest.png");
+	}
+
+	else if (facing == NORTH)
+	{
+		loadTexture("img/playerFacingNorth.png");
+	}
+	else if (facing == EAST)
+	{
+		loadTexture("img/playerFacingEast.png");
+	}
+	else if (facing == SOUTH)
+	{
+		loadTexture("img/playerFacingSouth.png");
+	}
+
+	return true;
+}
 
 int Character::getStr() const
 {
@@ -79,4 +104,39 @@ int Character::getSightRadius() const
 {
 	return sightRadius;
 }
+
+bool Character::addItem(GameItem *newItem)
+{
+	if (numberOfItems >= MAXITEMS)
+	{
+		return false;
+	}
+	characterItems[numberOfItems] = *newItem;
+	
+	numberOfItems++;
+	
+	return true;
+}
+
+
+bool Character::inventoryIsFull()
+{
+	if (numberOfItems >= MAXITEMS)
+	{
+		return true;
+	}
+	return false;
+}
+
+bool Character::getHasItems()
+{
+	return numberOfItems;
+}
+
+GameItem Character::removeItem()
+{
+	numberOfItems--;
+	return characterItems[numberOfItems+1];
+}
+
 

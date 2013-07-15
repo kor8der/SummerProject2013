@@ -7,15 +7,15 @@ toughness
 	hungerCounter = 10 * toughness//number is taken from ass
 	
 agility
-	dodgeChance =  0.005f * agility //edit these numbers
-	hitChance = 0.5f + agility*0.01//edit these numbers
+	dodgeChance =  0.008f * agility //edit these numbers
+	hitChance = 0.5f + agility*0.0049//edit these numbers
 	//add lockpicking
 
 intelligence
 	memory = 10 * int
 
 perception
-	lootModifier = 0.05*perception
+	lootModifier = 0.5 + 0.05*perception
 
 will
 	
