@@ -1,0 +1,9 @@
+*.png binary
+*.gif binary
+*.jpg binary
+*.sln binary
+*.vcxproj.* binary
+*.pdf binary
+*.doc* binary
+*.ogg binary
+*.mp3 binary
