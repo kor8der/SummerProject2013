@@ -1,8 +1,0 @@
-# Binary from scons
-summergame
-
-# some scons thing
-.sconsign.dblite
-
-# vim swapfiles
-*.swp

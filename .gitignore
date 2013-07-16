@@ -34,3 +34,11 @@ ipch/*
 
 # scons files
 config.log
+# Binary from scons
+summergame
+
+# some scons thing
+.sconsign.dblite
+
+# vim swapfiles
+*.swp
