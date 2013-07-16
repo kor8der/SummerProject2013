@@ -1,0 +1,32 @@
+# vi: syntax=python:et:ts=4
+import sys, os
+
+# Get the environment and start configuring (checking for libs and so on)
+env = Environment()
+conf = Configure(env)
+
+# Platform specific compiler flags
+if sys.platform.startswith('linux'):
+    env.Append(CCFLAGS = ['-ggdb3',\
+                    '-O0',\
+                    '-Wall',\
+                    '-std=c++0x'\
+                    ])#,'-pedantic'])#,'-Weffc++'])
+    env["ENV"]["PKG_CONFIG_PATH"] = os.environ.get("PKG_CONFIG_PATH")
+    env.ParseConfig("pkg-config --cflags --libs 'sfml-all >= 2'")
+elif sys.platform.startswith('win32'):
+    # Windows(visual studio compiler, cygwin has a different platform name) specific compiler flags
+    print "WARNING: No win32 specific flags set."
+    print "WARNING: No library checks are used."
+    print "WARNING: This means SCons does _not_ check for any libraries or library versions"
+
+env.Append(LIBS = ['sfml-window','sfml-graphics','sfml-system','sfml-audio'])
+
+# End configuring
+env = conf.Finish()
+
+# Build phase
+sources = Glob('*.cpp')
+object_list = env.Object(source = sources)
+prog = env.Program(target='../sp13', source = object_list)
+Default(prog)
