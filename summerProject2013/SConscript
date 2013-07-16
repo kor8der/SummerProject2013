@@ -28,5 +28,5 @@ env = conf.Finish()
 # Build phase
 sources = Glob('*.cpp')
 object_list = env.Object(source = sources)
-prog = env.Program(target='../sg', source = object_list)
+prog = env.Program(target='../summergame', source = object_list)
 Default(prog)
