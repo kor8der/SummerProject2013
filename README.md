@@ -28,7 +28,7 @@ It is apparently possible to build this sourcecode with Visual Studio, I
 "release mode", but I don't know).
 TODO: write up this section.
 
-### Mac
+## Mac
 See GNU/Linux, thomassigurdsen would assume it works with bash and SCons just 
 as with Linux.
 
