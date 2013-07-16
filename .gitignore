@@ -31,3 +31,6 @@
 #ipch files
 
 ipch/*
+
+# scons files
+config.log
