@@ -1,6 +1,6 @@
 
 /*
- * FILENAME.cpp
+ * GameItem.cpp
  *
  * 
  *
