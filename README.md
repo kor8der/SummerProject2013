@@ -1,6 +1,6 @@
 # About SummerProject2013
-This is a fork of Kor8der's SummerProject2013 (also called sp13). A roguelike 
-verymuch in development yet.
+SummerProject2013 (also called sp13) is a roguelike very much in development 
+yet.
 
 # Dependencies
 sp13 uses Simple and Fast Multimedia Library version 2.0, and Microsoft Visual 
