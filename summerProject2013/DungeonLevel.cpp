@@ -224,3 +224,4 @@ bool DungeonLevel::shadowCasting(int startRow, int radius, double startAngle, do
 
 	return true;
 }
+

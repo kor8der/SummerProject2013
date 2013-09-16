@@ -46,6 +46,8 @@ public:
 	GameItem* removeItem();
 	bool getIsFull();
 	GameItem *addItem(GameItem newItem);
+	bool	drawSelf(sf::RenderWindow *target);
+
 };
 
 

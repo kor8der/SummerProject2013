@@ -30,4 +30,19 @@ GameItem::GameItem()
 	minDamage = 1;
 	maxDamage = 2;
 	critMultiplier = 130;
+
+	loadTexture("img/daggerMap.png"); //needs a better solution
+
+	screenX = 16;
+	screenY = 16;
+
+}
+
+bool GameItem::adjustPosition(int newScreenX, int newScreenY)
+{
+	
+	screenX = newScreenX;
+	screenY = newScreenY;
+	objectSprite.setPosition(screenX, screenY);
+	return true;
 }

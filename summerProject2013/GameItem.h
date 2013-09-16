@@ -26,7 +26,7 @@
 
 #include "includes.h"
 
-class GameItem //:public GameObject//removed for testing
+class GameItem :public GameObject
 {
 protected:
 	int charges; 
@@ -38,8 +38,7 @@ protected:
 
 public:
 	GameItem();
-
-
+	bool adjustPosition(int newScreenX, int newScreenY);
 };
 
 #endif

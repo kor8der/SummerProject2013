@@ -75,7 +75,9 @@ MapObject::MapObject(bool block, bool visBlock, bool rest, int posX, int posY)
 		//loadTexture("img/testImg.gif");
 	}
 
-	numberOfItems = 0;
+	numberOfItems = 10;
+
+	items[numberOfItems].setPosition(mapX, mapY);
 
 }
 
@@ -85,6 +87,12 @@ bool MapObject::setScreenPosition(int xOffset, int yOffset)
 	screenX = (mapX-xOffset)*32;
 	screenY = (mapY-yOffset)*32;
 	objectSprite.setPosition(screenX, screenY);
+
+	for (int i; i<=numberOfItems; i++)
+	{
+		items[i].adjustPosition((mapX-xOffset)*32, (mapY-yOffset)*32);
+	}
+
 	return true;
 }
 
@@ -150,4 +158,12 @@ GameItem *MapObject::addItem(GameItem newItem)
 		return NULL;
 	}
 }
+
+bool MapObject::drawSelf(sf::RenderWindow *target)
+{
+	target->draw(objectSprite);
 	
+	items[numberOfItems].drawSelf(target);
+
+	return true;
+}

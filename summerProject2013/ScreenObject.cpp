@@ -74,3 +74,10 @@ bool ScreenObject::drawSelf(sf::RenderWindow *target)
 	target->draw(objectSprite);
 	return true;
 }
+
+bool ScreenObject::setScreenPos(int newX, int newY)
+{
+	screenX=newX;
+	screenY=newY;
+	return true;
+}

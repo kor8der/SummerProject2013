@@ -46,9 +46,10 @@ public:
 	
 	int getScreenX();
 	int getScreenY();
+	bool setScreenPos(int newX, int newY);
 
 	bool loadTexture(std::string location);
-	bool drawSelf(sf::RenderWindow *target);
+	virtual bool drawSelf(sf::RenderWindow *target);
 };
 
 
