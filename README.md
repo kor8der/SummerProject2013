@@ -1,6 +1,6 @@
 # About SummerProject2013
-This is a fork of Kor8der's SummerProject2013 (also called sp13). A roguelike 
-verymuch in development yet.
+SummerProject2013 (also called sp13) is a roguelike very much in development 
+yet.
 
 # Dependencies
 sp13 uses Simple and Fast Multimedia Library version 2.0, and Microsoft Visual 
@@ -33,4 +33,20 @@ See GNU/Linux, thomassigurdsen would assume it works with bash and SCons just
 as with Linux.
 
 # Licensing and Legalese
-TODO: see <https://github.com/kor8der/SummerProject2013/issues/2>
+## Media
+See summerProject/font/licensing.txt, summerProject/img/licensing.txt, and 
+summerProject/music/licensing.txt
+
+## Code
+SummerProject2013 is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+SummerProject2013 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with SummerProject2013.  If not, see <http://www.gnu.org/licenses/>.
