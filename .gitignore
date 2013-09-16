@@ -21,6 +21,18 @@
 
 /Release/*
 /Debug/*
+*.tlog
+*.obj
+*.log
+*.unsuccessfulbuild
+*.idb
+*.pfb
+*.manifest
+
+# Debug files
+
+*.tlog
+
 
 #project files
 

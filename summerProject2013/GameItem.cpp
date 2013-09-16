@@ -2,8 +2,10 @@
 
 GameItem::GameItem()
 {
-	equipable = false;
-	charges = 0;
-	weight = 1;
+	charges = -1;
+	weight = 2;
 	value = 1;
+	minDamage = 1;
+	maxDamage = 2;
+	critMultiplier = 130;
 }

@@ -32,9 +32,9 @@ int main ()
 	}
 	screen.setFramerateLimit(30);
 
-	sf::Texture texture;
-	texture.loadFromFile("img/testjpg.jpg");
-	sf::Sprite sprite(texture);
+	//sf::Texture texture;
+	//texture.loadFromFile("img/testjpg.jpg");
+	//sf::Sprite sprite(texture);
 
 
 	sf::Font font;
